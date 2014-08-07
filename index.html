@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introduction to Xamarin</title>
+
+		<meta name="description" content="An introduction to mobile development with Xamarin">
+		<meta name="author" content="Jason Famularo">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/tweaks.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Introduction to Xamarin</h1>
+					<h3>Mobile Development on iOS, Android, and Windows Phone with C#</h3>
+					<p>Follow along @ <a href="http://fammy.github.io/xamarin">http://fammy.github.io/xamarin</a></p>
+				</section>
+
+				<section>
+					<h2>Jason Famularo</h2>
+					<h3>
+						<a href="mailto:jason@famularo.org">jason@famularo.org</a> or
+						<a href="http://twitter.com/splodn">@splodn</a>
+					</h3>
+					<p>
+						Stop me and ask questions! (Although I may save them for the end)
+					</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>Background</li>
+						<li>Why do I care?</li>
+						<li>What problem does Xamarin solve?</li>
+						<li>What is the solution?</li>
+						<li>How does it work?</li>
+						<li>How do I get started?</li>
+						<li>Are there any prerequisites?</li>
+						<li>Questions</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Who and what is Xamarin and what do they do?</h2>
+					<h4>Mono - cross platform, open source .NET development framework</h4>
+					<p class="fragment">Mono allows .NET code to run on non-MS devices, such as...</p>
+					<br>
+					<p>
+						<span class="fragment">Mac</span>
+						<span class="fragment">, Linux</span>
+						<span class="fragment">, BSD</span>
+						<span class="fragment">, iOS</span>
+						<span class="fragment">, Android</span>
+						<span class="fragment">, PlayStation 3 <span class="fragment">and 4</span> <span class="fragment">and Vita</span></span>
+						<span class="fragment">, Wii</span>
+					</p>
+					<br>
+					<p class="fragment">
+						<span> ...and so on</span>
+					</p>
+					<br>
+					<p class="fragment">
+						<small>If you are interested in making games with Mono, check out the excellent <a href="http://www.monogame.net/">MonoGame</a>.</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Who and what is Xamarin and what do they do?</h2>
+					<h4>Xamarin Platform</h4>
+					<p>Takes code written in C# (or F#) and runs it on a Mono runtime or compiles to native code</p>
+					<table class="borders">
+						<tr class="fragment">
+							<td><strong>Xamarin.iOS</strong></td>
+							<td class="fragment">Phone, iPad, and iPod Touch</td>
+						</tr>
+						<tr class="fragment">
+							<td><strong>Xamarin.Android</strong></td>
+							<td class="fragment">Android phones, tablets, watches, TVs, Google Glass, Kindle Fire phone and tablets
+									(and Blackberry 10 via Android compatibility and that weird Nokia X line)</td>
+						</tr>
+						<tr class="fragment">
+							<td><strong>Xamarin.Mac</strong></td>
+							<td>Macintosh computers by Apple, Inc.</td>
+						</tr>
+						<tr class="fragment">
+							<td><strong>Xamarin.Forms</strong></td>
+							<td>Native UI for iOS, Android, Windows Phone with a single codebase</td>
+						</tr>
+						<tr class="fragment">
+							<td><strong>Test Cloud</strong></td>
+							<td>Automated testing on hundreds of devices</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Why should I care about the Xamarin platform?</h2>
+					<ul>
+						<li class="fragment">Write in a common, modern language developers (may) already know</li>
+						<li class="fragment">Reuse code on multiple platforms</li>
+						<li class="fragment">Use Visual Studio (2010+) or the free Xamarin Studio</li>
+						<li class="fragment">Many companies claim 60%, even 80% shared code. 95%+ possible with Xamarin.Forms</li>
+						<li class="fragment">Commercial product with support - important for businesses (and governments)</li>
+					</ul>
+					<p class="fragment">
+						<small>Also comes with a <a href="https://store.xamarin.com/">very commercial price</a>.</small>
+					</p>
+
+					<aside class="notes">
+						<ol>
+							<li>For example, what if we wanted a Technology Grows app that run on iPhone and Android.</li>
+							<li>Would it also be nice if it ran on Mac and Windows?</li>
+							<li>With Xamarin and C#, you can share the business logic (user authentication, how to communicate with the server, etc).</li>
+						</ol>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'linear',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
