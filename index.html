@@ -107,7 +107,7 @@
 						</tr>
 						<tr class="fragment">
 							<td><strong>Xamarin.Android</strong></td>
-							<td class="fragment">Android phones, tablets, watches, TVs, Google Glass, Kindle Fire phone and tablets
+							<td class="fragment">Android phones, tablets, watches, TVs, Google Glass, Kindle Fire phone and tablets, Ouya
 									(and Blackberry 10 via Android compatibility and that weird Nokia X line)</td>
 						</tr>
 						<tr class="fragment">
@@ -148,24 +148,11 @@
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
+					<h2>Sample code</h2>
 					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
+function something {
 }
 					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
 				</section>
 			</div>
 
@@ -193,6 +180,17 @@ function linkify( selector ) {
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
+
+		</script>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-22035260-18', 'auto');
+		  ga('send', 'pageview');
 
 		</script>
 
