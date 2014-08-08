@@ -59,20 +59,6 @@
 				</section>
 
 				<section>
-					<h2>Agenda</h2>
-					<ul>
-						<li>Background</li>
-						<li>Why do I care?</li>
-						<li>What problem does Xamarin solve?</li>
-						<li>What is the solution?</li>
-						<li>How does it work?</li>
-						<li>How do I get started?</li>
-						<li>Are there any prerequisites?</li>
-						<li>Questions</li>
-					</ul>
-				</section>
-
-				<section>
 					<h2>Who and what is Xamarin and what do they do?</h2>
 					<h4>Mono - cross platform, open source .NET development framework</h4>
 					<p class="fragment">Mono allows .NET code to run on non-MS devices, such as...</p>
@@ -103,12 +89,12 @@
 					<table class="borders">
 						<tr class="fragment">
 							<td><strong>Xamarin.iOS</strong></td>
-							<td class="fragment">Phone, iPad, and iPod Touch</td>
+							<td class="fragment">iPhone, iPad, and iPod Touch</td>
 						</tr>
 						<tr class="fragment">
 							<td><strong>Xamarin.Android</strong></td>
-							<td class="fragment">Android phones, tablets, watches, TVs, Google Glass, Kindle Fire phone and tablets, Ouya
-									(and Blackberry 10 via Android compatibility and that weird Nokia X line)</td>
+							<td class="fragment">Android phones, tablets, watches, TVs, Google Glass, Kindle Fire phone and tablets
+								(and Blackberry 10 via Android compatibility, and Ouya and other Android game consoles, and that weird Nokia X line)</td>
 						</tr>
 						<tr class="fragment">
 							<td><strong>Xamarin.Mac</strong></td>
@@ -123,6 +109,10 @@
 							<td>Automated testing on hundreds of devices</td>
 						</tr>
 					</table>
+
+					<aside class="notes">
+						Xamarin also offers other services, such as consulting services and some training that's probably pretty good but obviously not available here locally in Tallahassee.
+					</aside>
 				</section>
 
 				<section>
@@ -148,6 +138,38 @@
 				</section>
 
 				<section>
+					<h2>What's the solution?</h2>
+					<p>
+						Use Visual Studio or Xamarin Studio (or Sublime or Notepad and command line compiler, if that's your thing)
+					</p>
+					<p>
+						Write against native APIs, mapped to C#. APIs are (mostly) C#-ified
+					</p>
+					<p>
+						You write C# code and it gets compiled to native code (Mac, iOS, Android) or runs on Mono runtime (Mac, Android)
+					</p>
+					<p>
+						Still need to be able to read Java, Objective-C (and soon Swift)
+					</p>
+					<p>
+						Use (most) popular native libaries via "bindings"
+					</p>
+
+					<aside class="notes">
+						<li>Most versions of Xamarin.Android runs on the Mono runtime, which runs side-by-side with the Java runtime.</li>
+						<li>There is technically a cost to cross between Java to Mono.</li>
+						<li>The Xamarin.Android Enterprise plan does offer native compilation.</li>
+						<li>On iOS, it's a requirement so all editions compile to native code</li>
+						<li>Xamarin.Android Enterprise compiled to native could theoretically run faster than the Java equivalent.
+						Don't quote me on that.</li>
+					</aside>
+				</section>
+
+				<section>
+					<h2>How do I get started?</h2>
+				</section>
+
+				<section>
 					<h2>Sample code</h2>
 					<pre><code data-trim contenteditable>
 function something {
@@ -166,7 +188,7 @@ function something {
 				controls: false,
 				progress: true,
 				history: true,
-				center: true,
+				center: false,
 
 				transition: 'linear',
 
