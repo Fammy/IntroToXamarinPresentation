@@ -43,12 +43,13 @@
 			<div class="slides">
 				<section>
 					<h1>Introduction to Xamarin</h1>
-					<h3>Mobile Development on iOS, Android, and Windows Phone with C#</h3>
+					<h3>Mobile Development on iOS and Android with C#</h3>
 					<p>Follow along @ <a href="http://fammy.github.io/xamarin">http://fammy.github.io/xamarin</a></p>
 				</section>
 
 				<section>
 					<h2>Jason Famularo</h2>
+					<h3>(Yes, that's <span style="color: #FB7516">"Famu"</span> like the school)</h3>
 					<h3>
 						<a href="mailto:jason@famularo.org">jason@famularo.org</a> or
 						<a href="http://twitter.com/splodn">@splodn</a>
@@ -86,7 +87,7 @@
 					<h2>Who and what is Xamarin and what do they do?</h2>
 					<h4>Xamarin Platform</h4>
 					<p>Takes code written in C# (or F#) and runs it on a Mono runtime or compiles to native code</p>
-					<table class="borders">
+					<table class="borders small">
 						<tr class="fragment">
 							<td><strong>Xamarin.iOS</strong></td>
 							<td class="fragment">iPhone, iPad, and iPod Touch</td>
@@ -139,42 +140,70 @@
 
 				<section>
 					<h2>What's the solution?</h2>
-					<p>
-						Use Visual Studio or Xamarin Studio (or Sublime or Notepad and command line compiler, if that's your thing)
-					</p>
-					<p>
-						Write against native APIs, mapped to C#. APIs are (mostly) C#-ified
-					</p>
-					<p>
-						You write C# code and it gets compiled to native code (Mac, iOS, Android) or runs on Mono runtime (Mac, Android)
-					</p>
-					<p>
-						Still need to be able to read Java, Objective-C (and soon Swift)
-					</p>
-					<p>
-						Use (most) popular native libaries via "bindings"
-					</p>
+					<ul>
+						<li class="fragment">Use Visual Studio or Xamarin Studio (or Sublime or Notepad and command line compiler, if that's your thing)</li>
+						<li class="fragment">Write against native APIs, mapped to C#. APIs are (mostly) C#-ified</li>
+						<li class="fragment">You write C# code and it gets compiled to native code (Mac, iOS, Android) or runs on Mono runtime (Mac, Android)</li>
+						<li class="fragment">Still need to be able to read Java, Objective-C (and soon Swift)</li>
+						<li class="fragment">Use (most) popular native libaries via "bindings"</li>
+					</ul>
 
 					<aside class="notes">
-						<li>Most versions of Xamarin.Android runs on the Mono runtime, which runs side-by-side with the Java runtime.</li>
-						<li>There is technically a cost to cross between Java to Mono.</li>
-						<li>The Xamarin.Android Enterprise plan does offer native compilation.</li>
-						<li>On iOS, it's a requirement so all editions compile to native code</li>
-						<li>Xamarin.Android Enterprise compiled to native could theoretically run faster than the Java equivalent.
-						Don't quote me on that.</li>
+						<ul>
+							<li>Most versions of Xamarin.Android runs on the Mono runtime, which runs side-by-side with the Java runtime.</li>
+							<li>There is technically a cost to cross between Java to Mono.</li>
+							<li>The Xamarin.Android Enterprise plan does offer native compilation.</li>
+							<li>On iOS, it's a requirement so all editions compile to native code</li>
+							<li>Xamarin.Android Enterprise compiled to native could theoretically run faster than the Java equivalent.
+							Don't quote me on that.</li>
+						</ul>
 					</aside>
 				</section>
 
 				<section>
 					<h2>How do I get started?</h2>
+					<ul>
+						<li class="fragment">Download the Business plan free trial -- which will turn into the Starter plan after 30 days (90 days if you are an MSDN customer).</li>
+						<li class="fragment">Starter edition limited in app size and cannot link to external libraries, components</li>
+						<li class="fragment">Download one of the prebuilt apps from Xamarin or File->New Project if you are brave</li>
+					</ul>
+
+					<div class="fragment" style="margin-top: 1em;">
+						<h4>Want to get a free shirt by checking out Xamarin?</h4>
+						<h3><a href="https://xamarin.com/c-sharp-shirt">https://xamarin.com/c-sharp-shirt</a></h3>
+					</div>
+
+					<aside class="notes">
+						<ul>
+							<li>Protip: ask for a discount</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
-					<h2>Sample code</h2>
+					<h2>Enough slides, show me some code</h2>
 					<pre><code data-trim contenteditable>
-function something {
-}
-					</code></pre>
+ protected override void OnCreate (Bundle bundle)
+        {
+            base.OnCreate (bundle);
+
+            // Set our view from the "main" layout resource
+            SetContentView (Resource.Layout.LoginLayout);
+
+            // Get our controls from the layout resource,
+            // and attach an event to it
+            login = FindViewById&lt;Button&gt; (Resource.Id.logIn);
+            userName = FindViewById&lt;EditText&gt; (Resource.Id.userName);
+            password = FindViewById&lt;EditText&gt; (Resource.Id.password);
+            progressIndicator = FindViewById&lt;ProgressBar&gt; (Resource.Id.loginProgress);
+            var loginHelp = FindViewById&lt;ImageButton&gt; (Resource.Id.loginQuestion);</code></pre>
+				</section>
+
+				<section>
+					<h2>Questions?</h2>
+					<h4>Ask away!</h4>
+					<h2>Want more info?</h2>
+					<h4>Head to <a href="http://www.xamarin.com/">Xamarin.com</a> or stay tuned to Technology Grows for more exciting courses</h4>
 				</section>
 			</div>
 
@@ -191,6 +220,9 @@ function something {
 				center: false,
 
 				transition: 'linear',
+
+				parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				parallaxBackgroundSize: '2100px 900px',
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
