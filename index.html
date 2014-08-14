@@ -248,6 +248,12 @@
                 //parallaxBackgroundImage: 'tg1.png',
                 //parallaxBackgroundSize: '2100px 900px',
 
+                multiplex: {
+                        secret: null,
+                        id: '3327411aec0cb7b6', // id, obtained from socket.io server
+                        url: 'revealjs.jit.su:80' // Location of socket.io server
+                    },
+
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
                     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -255,8 +261,10 @@
                     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                ]
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js', async: true },
+                    //{ src: 'plugin/multiplex/master.js', async: true }                ]
+                    { src: 'plugin/multiplex/client.js', async: true }                ]
             });
 
         </script>
